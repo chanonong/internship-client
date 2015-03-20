@@ -3,7 +3,11 @@ app.controller('ThailandCtrl', [
   function($scope, restService) {
 
     restService.getPlace().then(function(res) {
-      console.log(res.data)
+      var places = res.data
+      restService.getTag().then(function(resp) {
+        var tags = resp.data
+        $scope.places_in_thailand = {'places' : places , 'filters': tags}
+      })
     })
     // var obj = {}
     // restService.getPlace().then(function(res) {

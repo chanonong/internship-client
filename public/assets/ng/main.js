@@ -56,19 +56,15 @@ app.service('restService', function($http, $rootScope) {
         },
         getPlaceById: function(id) {
             var path = "http://128.199.76.147:8001/api/places/"+id;
-            return $http.get(path, function (response) {
+            return $http.get(path).success(function (response) {
                 return response.data;
-            }).error(function(data, status) {
-                // TODO Handle
-            });
+            })
         },
         getTag: function(){
             var path = 'http://128.199.76.147:8001/api/tags';
-            return $http.get(path, function (response) {
+            return $http.get(path).success(function (response) {
                 return response.data;
-            }).error(function(data, status) {
-                    // TODO Handle
-            });
+            })
         }
 
     };
