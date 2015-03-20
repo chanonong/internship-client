@@ -1,8 +1,9 @@
 app.controller('ThailandCtrl', [
   '$scope','restService',
   function($scope, restService) {
+
     restService.getPlace().then(function(res) {
-      console.log(res)
+      console.log(res.data)
     })
     // var obj = {}
     // restService.getPlace().then(function(res) {

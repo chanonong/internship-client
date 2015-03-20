@@ -50,11 +50,9 @@ app.service('restService', function($http, $rootScope) {
     return {
         getPlace: function(){
             var path = 'http://128.199.76.147:8001/api/places';
-            return $http.get(path, function (response) {
+            return $http.get(path).success(function (response) {
                 return response.data;
-            }).error(function(data, status) {
-                    // TODO Handle
-            });
+            })
         },
         getPlaceById: function(id) {
             var path = "http://128.199.76.147:8001/api/places/"+id;
