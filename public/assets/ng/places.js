@@ -1,6 +1,6 @@
-app.controller('ThailandCtrl', [
-  '$scope','restService',
-  function($scope, restService) {
+app.controller('PlacesCtrl', [
+  '$scope','restService','$routeParams'
+  function($scope, restService,$routeParams) {
 
     restService.getPlace().then(function(res) {
       var places = res.data
