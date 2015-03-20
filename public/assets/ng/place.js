@@ -1,6 +1,6 @@
 app.controller('PlaceCtrl', [
-  '$scope','restService','$routeParams'
+  '$scope','restService','$routeParams',
   function($scope, restService,$routeParams) {
-    console.log($routeParams.placeId)
+  	console.log($routeParams.id)
   }
 ])

@@ -17,19 +17,19 @@ app.config(function($routeProvider, $locationProvider) {
 
     .when('/home',
     {
-        templateUrl: "templates/home.html",
+        templateUrl: "/templates/home.html",
         controller: "HomeCtrl",
         title: "Home"
     })
     .when('/thailand',
     {
-        templateUrl: "templates/thailand.html",
+        templateUrl: "/templates/thailand.html",
         controller: "ThailandCtrl",
         title: "Thailand"
     })
-    .when('/places/:placeId',
+    .when('/places/:id',
     {
-        templateUrl: "templates/place.html",
+        templateUrl: "/templates/place.html",
         controller: "PlaceCtrl",
         title: "ArMSe"
     })
