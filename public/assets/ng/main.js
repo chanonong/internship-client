@@ -27,6 +27,12 @@ app.config(function($routeProvider, $locationProvider) {
         controller: "ThailandCtrl",
         title: "Thailand"
     })
+    .when('/places/:placeId',
+    {
+        templateUrl: "templates/place.html",
+        controller: "PlaceCtrl",
+        title: "ArMSe"
+    })
     .otherwise({
         title: "ERROR 404",
         template: "<p><h1>&nbsp;&nbsp;&nbsp;อาร์มสีเออเร่อ ๔๐๔&nbsp;&nbsp;&nbsp;</h1></p>"
