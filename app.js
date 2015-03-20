@@ -19,7 +19,6 @@ var app = module.exports = express();
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -40,13 +39,14 @@ if (app.get('env') === 'production') {
 
 // Routes
 app.get('/', routes.index);
-app.get('/partial/:name', routes.partial);
 
 // JSON API
 app.get('/api/name', api.name);
 
 // redirect all others to the index (HTML5 history)
-app.get('*', routes.index);
+app.get('*', function(request, response){
+  response.sendfile('./public/index.html');
+});
 
 /**
 * Start Server
