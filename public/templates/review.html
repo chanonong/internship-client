@@ -1,0 +1,64 @@
+<div>
+         <div>
+            <section class="header place-page-header">
+               <div class="container header-content-wrapper">
+                  <div class="col-md-7 col-lg-7 col-sm-12">
+                     <p class="header-content">{{review.name}}</p>
+                     <p class="header-small-content">{{review.full_name}}</p>
+                     <p class="header-small-content">{{review.address}}</p>
+                  </div>
+                  <div class="col-md-5 col-lg-5 col-sm-12">
+                     <div class="google-maps-wrapper">GG maps</div>
+                  </div>
+               </div>
+            </section>
+            <section class="page-content-wrapper overview-page-content-wrapper">
+               <div class="row">
+                  <div class="panel panel-default respository"> <a href="index" class="link-on-white">Home </a>/ <a href="overseas" class="link-on-white">Overseas</a>/ <a href="/places/{{review.place_id}}" class="link-on-white">{{review.place_id}}</a>/ Review by {{review.reviewer_id}}</div>
+                  <div class="col-md-8 col-sm-12 col-lg-8">
+                     <div class="row overview">
+                        <div class="overview-content-header">About {{review.place_id}}<button type="button" class="btn btn-primary btn-edit"><span class="glyphicon glyphicon-edit"></span> Edit</button></div>
+                        {{review.detail}}
+                        <!-- <div class="overview-content">test</div>
+                        <div class="overview-content-header">Research</div>
+                        <div class="overview-content">test</div>
+                        <div class="overview-content-header">Research</div>
+                        <div class="overview-content">test</div>
+                        <div class="overview-content-header">Research</div>
+                        <div class="overview-content">test</div> -->
+                     </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12 col-lg-4">
+                     <div class="col-md-12 col-lg-12 panel-grey tags-row tags-box">
+                        <div class="tags-by-type" ng-repeat="tag in review.tags">
+                           <h4 class="tags-wrapper"><span class="label label-black tags">{{tag.tag_category_id}}</span></h4>
+                        </div> <!--
+                        <div class="tags-by-type">
+                           <h4 class="tags-wrapper"><span class="label label-blue tags">Paid</span></h4>
+                        </div>
+                        <div class="tags-by-type">
+                           <h4 class="tags-wrapper"><span class="label label-green tags">Field of Work</span></h4>
+                        </div>
+                        <div class="tags-by-type">
+                           <h4 class="tags-wrapper"><span class="label label-orange tags">Working Hours</span></h4>
+                        </div>
+                        <div class="tags-by-type">
+                           <h4 class="tags-wrapper"><span class="label label-red tags">Programming Language</span></h4>
+                        </div> -->
+                     </div>
+                     <div class="col-md-12 col-lg-12 panel-grey tags-row">
+                        <div class="panel rating-panel panel-grey">
+                           <div class="panel-body rating-header">Average of 6 ratings</div>
+                           <table class="col-md-12 col-lg-12 col-sm-12 rating-table">
+                              <tr ng-repeat="rating in review.ratings">
+                                 <td class="col-md-6 col-lg-6 col-sm-6 rating-content">{{rating.rating_category_id}}</td>
+                                 <td class="col-md-6 col-lg-6 col-sm-6 rating-content"><span class="glyphicon glyphicon-heart internship-rating"></span><span class="glyphicon glyphicon-heart internship-rating"></span><span class="glyphicon glyphicon-heart internship-rating"></span><span class="glyphicon glyphicon-heart internship-rating"></span><span class="glyphicon glyphicon-heart internship-rating"></span><span class="glyphicon glyphicon-heart internship-rating"></span></td>
+                              </tr>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+         </div>
+      </div>

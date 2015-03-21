@@ -31,7 +31,12 @@ app.config(function($routeProvider, $locationProvider) {
     {
         templateUrl: "/templates/place.html",
         controller: "PlaceCtrl",
-        title: "ArMSe"
+        title: "Place"
+    })
+    .when('/reviews/:id',{
+        templateUrl: "/templates/review.html",
+        controller: "ReviewCtrl",
+        title: "Review"
     })
     .otherwise({
         title: "ERROR 404",
@@ -71,8 +76,19 @@ app.service('restService', function($http, $rootScope) {
             return $http.get(path).success(function (response) {
                 return response.data;
             })
+        },
+        getReviewsByPlaceId: function(id) {
+            var path = "http://128.199.76.147:8001/api/reviews?place_id="+id;
+            return $http.get(path).success(function (response) {
+                return response.data;
+            })
+        },
+        getReviewById: function(id) {
+            var path = "http://128.199.76.147:8001/api/reviews/"+id;
+            return $http.get(path).success(function (response) {
+                return response.data;
+            })
         }
-
     };
 });
 
