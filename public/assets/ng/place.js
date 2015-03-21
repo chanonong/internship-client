@@ -18,10 +18,16 @@ app.controller('PlaceCtrl', [
           arr.push({ 'id' : i , 'score' : category[i-1] / reviews.length})
         }
 
-        //console.log(arr)
-        $scope.avg_ratings = arr
-  			$scope.short_reviews = reviews
-
+        restService.getRatingCategories().then(function(re){
+          console.log(arr)
+          for(var j = 1; j <= arr.length ; ++ j) {
+            arr[j-1].name = re.data.filter(function(y){
+              return y.id == arr[j-1].id
+            })[0].name
+          }
+          $scope.avg_ratings = arr
+          $scope.short_reviews = reviews
+        })
   		})
   	})
   }

@@ -12,9 +12,10 @@
             </div>
          </div>
       </section>
-      <section class="page-content-wrapper overview-page-content-wrapper">
+      <!-- TODO IM -->
+      <section class="page-content-wrapper overview-page-content-wrapper" ng-style="{'background-image':'url({{place.url}})'}">
          <div class="row">
-            <div class="panel panel-default respository"> <a href="/index" class="link-on-white">Home </a>/ <a href="/internship" class="link-on-white">Internship Places</a>/ {{place.name}}</div>
+            <div class="panel panel-default respository"><a href="/internship" class="link-on-white">Internship Places</a>/ {{place.name}}</div>
             <div class="col-md-8 col-sm-12 col-lg-8">
                <div class="row overview">
                   <div class="overview-content-header">About {{place.name}}<button type="button" class="btn btn-primary btn-edit"><span class="glyphicon glyphicon-edit"></span> Edit</button></div>

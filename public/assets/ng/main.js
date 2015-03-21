@@ -88,6 +88,18 @@ app.service('restService', function($http, $rootScope) {
             return $http.get(path).success(function (response) {
                 return response.data;
             })
+        },
+        getTagCategories: function() {
+            var path = "http://128.199.76.147:8001/api/tagcategories";
+            return $http.get(path).success(function (response) {
+                return response.data;
+            })
+        },
+        getRatingCategories: function() {
+            var path = "http://128.199.76.147:8001/api/ratingcategories";
+            return $http.get(path).success(function (response) {
+                return response.data;
+            })
         }
     };
 });
