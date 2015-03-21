@@ -28,7 +28,7 @@
                               <div class="media-left"><a href="#"><img src="assets/img/media.svg" class="media-object"></a></div>
                               <div class="media-body">
                                  <div class="row student-review-info">
-                                    <h4 class="media-heading student-name">{{review.reviewer_id}}<small class="work-field-and-time"> {{review.position}}</small></h4>
+                                    <h4 class="media-heading student-name">{{review.reviewer_id}} (reviewer id)<small class="work-field-and-time"> {{review.position}}</small></h4>
                                     <div class="work-field-and-time-start">{{review.start}}</div>
                                     <div class="work-field-and-time-finish">{{review.finish}}</div>
                                     <div class="short-review"><span ng-if="review.ratings>=1" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings>=2" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings>=3" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings>=4" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings>=5" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings>=6" class="glyphicon glyphicon-heart internship-rating"></span>"{{review.summary}}"<a href="/reviews/{{review.id}}" class="readmore">» read more</a></div>
@@ -46,7 +46,7 @@
                      <div class="panel-body rating-header">Average of 6 ratings</div>
                      <table class="col-md-12 col-lg-12 col-sm-12 rating-table">
                         <tr ng-repeat="rating in avg_ratings">
-                           <td class="col-md-6 col-lg-6 col-sm-6 rating-content">{{rating.id}}</td>
+                           <td class="col-md-6 col-lg-6 col-sm-6 rating-content">{{rating.name}}</td>
                            <td class="col-md-6 col-lg-6 col-sm-6 rating-content"><span ng-if="rating.score>=1" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="rating.score>=2" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="rating.score>=3" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="rating.score>=4" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="rating.score>=5" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="rating.score>=6" class="glyphicon glyphicon-heart internship-rating"></span></td>
                         </tr>
                      </table>

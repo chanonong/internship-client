@@ -14,7 +14,7 @@
             </section>
             <section class="page-content-wrapper overview-page-content-wrapper">
                <div class="row">
-                  <div class="panel panel-default respository"> <a href="/index" class="link-on-white">Home </a>/ <a href="/internship" class="link-on-white">Internship Places</a>/ <a href="/places/{{review.place_id}}" class="link-on-white">{{review.place_id}}</a>/ Review by {{review.reviewer_id}}</div>
+                  <div class="panel panel-default respository"> <a href="/index" class="link-on-white">Home </a>/ <a href="/internship" class="link-on-white">Internship Places</a>/ <a href="/places/{{review.place_id}}" class="link-on-white">{{review.place_id}}</a>/ Review by {{review.reviewer_id}} (reviewer id)</div>
                   <div class="col-md-8 col-sm-12 col-lg-8">
                      <div class="row overview">
                         <div class="overview-content-header">About {{review.place_id}}<button type="button" class="btn btn-primary btn-edit"><span class="glyphicon glyphicon-edit"></span> Edit</button></div>
@@ -31,7 +31,7 @@
                   <div class="col-md-4 col-sm-12 col-lg-4">
                      <div class="col-md-12 col-lg-12 panel-grey tags-row tags-box">
                         <div class="tags-by-type" ng-repeat="tag in review.tags">
-                           <h4 class="tags-wrapper"><span class="label label-black tags">{{tag.tag_category_id}}</span></h4>
+                           <h4 class="tags-wrapper"><span class="label label-black tags">{{tag.value}}</span></h4>
                         </div> <!--
                         <div class="tags-by-type">
                            <h4 class="tags-wrapper"><span class="label label-blue tags">Paid</span></h4>
@@ -51,7 +51,7 @@
                            <div class="panel-body rating-header">Average of 6 ratings</div>
                            <table class="col-md-12 col-lg-12 col-sm-12 rating-table">
                               <tr ng-repeat="rating in review.ratings">
-                                 <td class="col-md-6 col-lg-6 col-sm-6 rating-content">{{rating.rating_category_id}}</td>
+                                 <td class="col-md-6 col-lg-6 col-sm-6 rating-content">{{rating.name}}</td>
                                  <td class="col-md-6 col-lg-6 col-sm-6 rating-content"><span ng-if="rating.score>=1" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="rating.score>=2" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="rating.score>=3" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="rating.score>=4" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="rating.score>=5" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="rating.score>=6" class="glyphicon glyphicon-heart internship-rating"></span></td>
                               </tr>
                            </table>
