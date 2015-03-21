@@ -21,11 +21,11 @@ app.config(function($routeProvider, $locationProvider) {
         controller: "HomeCtrl",
         title: "Home"
     })
-    .when('/thailand',
+    .when('/internship',
     {
-        templateUrl: "/templates/thailand.html",
-        controller: "ThailandCtrl",
-        title: "Thailand"
+        templateUrl: "/templates/internship.html",
+        controller: "InternshipCtrl",
+        title: "Internship Places"
     })
     .when('/places/:id',
     {

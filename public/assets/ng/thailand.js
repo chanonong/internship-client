@@ -1,4 +1,4 @@
-app.controller('ThailandCtrl', [
+app.controller('InternshipCtrl', [
   '$scope','restService',
   function($scope, restService) {
 
