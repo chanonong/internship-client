@@ -1,7 +1,10 @@
 
-var app = angular.module('app', ['ngRoute']);
+var app = angular.module('app', ['ngRoute', 'angularFileUpload']);
 
-app.config(function($routeProvider, $locationProvider) {
+app.config(function($routeProvider, $locationProvider, $httpProvider) {
+
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
     $routeProvider
     .when('/',
@@ -80,6 +83,12 @@ app.service('restService', function($http, $rootScope) {
                 return response.data;
             })
         },
+        createPlace: function(object){
+            var path = 'http://128.199.76.147:8001/api/places';
+            return $http.post(path, object).success(function (response) {
+                return response.data;
+            })
+        },
         getPlaceById: function(id) {
             var path = "http://128.199.76.147:8001/api/places/"+id;
             return $http.get(path).success(function (response) {
@@ -127,7 +136,16 @@ app.service('restService', function($http, $rootScope) {
             return $http.get(path).success(function (response) {
                 return response.data;
             })
+        },
+        uploadImage: function(file) {
+            var path = "http://128.199.76.147:8001/files";
+            console.log(file)
+            return $http.post(path, file, {headers: { 'Content-Type': undefined }}).success(function (response) {
+                return response.data;
+            })
         }
+
+
     };
 });
 
