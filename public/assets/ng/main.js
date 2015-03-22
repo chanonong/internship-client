@@ -38,6 +38,16 @@ app.config(function($routeProvider, $locationProvider) {
         controller: "ReviewCtrl",
         title: "Review"
     })
+    .when('/add-place',{
+        templateUrl: "/templates/add-place.html",
+        controller: "AddPlaceCtrl",
+        title: "Add Place"
+    })
+    .when('/add-review/:placeid',{
+        templateUrl: "/templates/add-review.html",
+        controller: "AddReviewCtrl",
+        title: "Add Review"
+    })
     .otherwise({
         title: "ERROR 404",
         template: "<p><h1>&nbsp;&nbsp;&nbsp;อาร์มสีเออเร่อ ๔๐๔&nbsp;&nbsp;&nbsp;</h1></p>"
@@ -97,6 +107,12 @@ app.service('restService', function($http, $rootScope) {
         },
         getRatingCategories: function() {
             var path = "http://128.199.76.147:8001/api/ratingcategories";
+            return $http.get(path).success(function (response) {
+                return response.data;
+            })
+        },
+        getTags: function() {
+            var path = "http://128.199.76.147:8001/api/tags";
             return $http.get(path).success(function (response) {
                 return response.data;
             })

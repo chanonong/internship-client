@@ -1,0 +1,44 @@
+<form>
+   <section class="header add-place-page-header">
+      <div class="container header-content-wrapper">
+         <div class="col-md-7 col-lg-7 col-sm-12">
+            <p class="header-content"><input id="place-name" type="text" placeholder="ชื่อสถานที่ฝึกงาน" required class="form-control form-place-name"></p>
+            <p class="header-small-content"><input id="place-fullname" type="text" placeholder="ชื่อเต็มของสถานที่ฝึกงาน (optional)" class="form-control form-place-fullname"></p>
+            <p class="header-small-content"><input id="place-address" type="text" placeholder="ที่อยู่ของสถานที่ฝึกงาน" class="form-control form-place-address"></p>
+          <input type="file" class="hidden" id="fileInput"> <button id="upload-img" class="btn btn-danger btn-add-head-photo" onclick="$('#fileInput').click()"><span class="glyphicon glyphicon-camera"> Upload Picture (Recommended 1200x900)</span></button>
+            <h4><span id="img-path" class="label label-primary path"></span></h4>
+         </div>
+      </div>
+   </section>
+   <section class="page-content-wrapper overview-page-content-wrapper">
+      <div class="row">
+          <div class="panel panel-default respository"> <a href="/internship" class="link-on-white">Internship Places</a>/ Add New Place</div>
+         <div class="row col-md-12 col-lg-12 col-sm-12">
+            <div class="row col-md-4 col-lg-4 col-sm-12">
+               <div class="overview-content-header">Add New Place</div>
+               <div class="review-topic-header">About</div>
+               <p class="small-description">เขียนอธิบายเกี่ยวกับการสถานที่ฝึกงาน</p>
+               <p class="small-description">สามารถใช้ได้ทั้งภาษาไทยและภาษาอังกฤษ โดยมีเนื้อหาแนะนำดังนี้</p>
+               <p class="small-description">- ข้อมูลทั่วไปของสถานที่ฝึกงาน</p>
+               <p class="small-description">- ประเภทของงาน</p>
+               <p class="small-description">- คำแนะนำอื่นๆ</p>
+            </div>
+            <div class="row col-md-8 col-lg-8 col-sm-12"><textarea class="col-md-12" name="content" data-provide="markdown" data-hidden-buttons="Preview" rows="20" placeholder="สถานที่ฝึกงานเป็นยังไง มีอะไรบ้างงงง งงงง งง ง.." required></textarea></div>
+         </div>
+         <div class="row col-md-12 col-lg-12 col-sm-12 add-place-field-row">
+            <div class="row col-md-4 col-lg-4 col-sm-12">
+               <div class="review-topic-header">Website</div>
+            </div>
+            <div class="row col-md-8 col-lg-8 col-sm-12"><input id="website" type="text" name="website" placeholder="เว็บของสถานที่ฝึกงาน" class="form-control"></div>
+         </div>
+         <div class="row col-md-12 col-lg-12 col-sm-12 add-place-field-row">
+            <div class="row col-md-4 col-lg-4 col-sm-12">
+               <div class="review-topic-header">Location on Google Maps</div>
+            </div>
+            <div class="row col-md-4 col-lg-4 col-sm-12 lat-field"><input id="lat" type="text" name="lat" placeholder="ละติจูด" class="form-control"></div>
+            <div class="row col-md-4 col-lg-4 col-sm-12"><input id="long" type="text" name="long" placeholder="ลองจิจูด" class="form-control"></div>
+         </div>
+      </div>
+   </section>
+   <div class="row add-place-field-row"><button type="submit" class="btn btn-primary btn-save">Add New Place</button></div>
+</form>

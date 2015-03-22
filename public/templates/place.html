@@ -20,7 +20,7 @@
                <div class="row overview">
                   <div class="overview-content-header">About {{place.name}}<button type="button" class="btn btn-primary btn-edit"><span class="glyphicon glyphicon-edit"></span> Edit</button></div>
                   <div class="overview-content">{{place.about}}</div>
-                  <div class="overview-content-header">Review<a href="/add-review"><button type="button" href="/add-review" class="btn btn-primary btn-edit"><span class="glyphicon glyphicon-pencil"></span> Write Your Review</button></a></div>
+                  <div class="overview-content-header">Review<a href="/add-review/{{place.id}}"><button type="button" href="/add-review/{{place.id}}" class="btn btn-primary btn-edit"><span class="glyphicon glyphicon-pencil"></span> Write Your Review</button></a></div>
                   <div class="overview-content">
                      <div class="panel panel-default">
                         <ul class="list-group">
@@ -30,9 +30,9 @@
                               <div class="media-body">
                                  <div class="row student-review-info">
                                     <h4 class="media-heading student-name">{{review.reviewer_id}} (reviewer id)<small class="work-field-and-time"> {{review.position}}</small></h4>
-                                    <div class="work-field-and-time-start">{{review.start}}</div>
-                                    <div class="work-field-and-time-finish">{{review.finish}}</div>
-                                    <div class="short-review"><span ng-if="review.ratings>=1" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings>=2" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings>=3" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings>=4" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings>=5" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings>=6" class="glyphicon glyphicon-heart internship-rating"></span>"{{review.summary}}"<a href="/reviews/{{review.id}}" class="readmore">» read more</a></div>
+                                    <div class="work-field-and-time-start">Start : {{review.start | date:'yyyy-MM-dd'}}</div>
+                                    <div class="work-field-and-time-finish">Finish : {{review.finish | date:'yyyy-MM-dd'}}</div>
+                                    <div class="short-review"><span ng-if="review.ratings[5].score>=1" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=2" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=3" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=4" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=5" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=6" class="glyphicon glyphicon-heart internship-rating"></span>"{{review.summary}}"<a href="/reviews/{{review.id}}" class="readmore">» read more</a></div>
                                  </div>
                               </div>
                            </li>

@@ -3,9 +3,9 @@
             <section class="header place-page-header">
                <div class="container header-content-wrapper">
                   <div class="col-md-7 col-lg-7 col-sm-12">
-                     <p class="header-content">{{review.name}}</p>
-                     <p class="header-small-content">{{review.full_name}}</p>
-                     <p class="header-small-content">{{review.address}}</p>
+                     <p class="header-content">{{place.name}}</p>
+                     <p class="header-small-content">{{place.full_name}}</p>
+                     <p class="header-small-content">Review by {{review.reviewer_id}}(reviewer id)</p>
                   </div>
                   <div class="col-md-5 col-lg-5 col-sm-12">
                      <div class="google-maps-wrapper">GG maps</div>
@@ -14,10 +14,10 @@
             </section>
             <section class="page-content-wrapper overview-page-content-wrapper">
                <div class="row">
-                  <div class="panel panel-default respository"> <a href="/internship" class="link-on-white">Internship Places</a>/ <a href="/places/{{review.place_id}}" class="link-on-white">{{review.place_name}}</a>/ Review by {{review.reviewer_id}} (reviewer id)</div>
+                  <div class="panel panel-default respository"> <a href="/internship" class="link-on-white">Internship Places</a>/ <a href="/places/{{review.place_id}}" class="link-on-white">{{place.name}}</a>/ Review by {{review.reviewer_id}} (reviewer id)</div>
                   <div class="col-md-8 col-sm-12 col-lg-8">
                      <div class="row overview">
-                        <div class="overview-content-header">About {{review.place_id}}<button type="button" class="btn btn-primary btn-edit"><span class="glyphicon glyphicon-edit"></span> Edit</button></div>
+                        <div class="overview-content-header">About {{place.name}}<button type="button" class="btn btn-primary btn-edit"><span class="glyphicon glyphicon-edit"></span> Edit</button></div>
                         {{review.detail}}
                         <!-- <div class="overview-content">test</div>
                         <div class="overview-content-header">Research</div>
@@ -31,7 +31,7 @@
                   <div class="col-md-4 col-sm-12 col-lg-4">
                      <div class="col-md-12 col-lg-12 panel-grey tags-row tags-box">
                         <div class="tags-by-type" ng-repeat="tag in review.tags">
-                           <h4 class="tags-wrapper"><span class="label label-black tags">g{{tag.value}}</span></h4>
+                           <h4 class="tags-wrapper"><span class="label label-black tags">{{tag.value}}</span></h4>
                         </div> <!--
                         <div class="tags-by-type">
                            <h4 class="tags-wrapper"><span class="label label-blue tags">Paid</span></h4>

@@ -2,7 +2,6 @@ app.controller('PlaceCtrl', [
   '$scope','restService','$routeParams',
   function($scope, restService,$routeParams) {
   	restService.getPlaceById($routeParams.id).then(function(res) {
-  		console.log(res.data)
   		$scope.place = res.data
 
   		restService.getReviewsByPlaceId($routeParams.id).then(function(resp){
@@ -19,12 +18,12 @@ app.controller('PlaceCtrl', [
         }
 
         restService.getRatingCategories().then(function(re){
-          console.log(arr)
           for(var j = 1; j <= arr.length ; ++ j) {
             arr[j-1].name = re.data.filter(function(y){
               return y.id == arr[j-1].id
             })[0].name
           }
+
           $scope.avg_ratings = arr
           $scope.short_reviews = reviews
         })
