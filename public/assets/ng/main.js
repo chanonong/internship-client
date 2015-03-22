@@ -104,6 +104,12 @@ app.service('restService', function($http, $rootScope) {
                 return response.data;
             })
         },
+        createReview: function(object) {
+            var path = "http://128.199.76.147:8001/api/reviews/";
+            return $http.post(path, object).success(function (response) {
+                return response.data;
+            })
+        },
         getTagCategories: function() {
             var path = "http://128.199.76.147:8001/api/tagcategories";
             return $http.get(path).success(function (response) {
