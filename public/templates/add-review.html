@@ -15,21 +15,28 @@
             <section class="page-content-wrapper overview-page-content-wrapper">
                <div class="row">
                   <form>
-                     <div class="panel panel-default respository"> <a href="/internship" class="link-on-white">Internship Places</a>/ <a href="/places/{{review.place_id}}" class="link-on-white">{{place.name}}</a><a href="review" class="link-on-white">Review by {student.name}</a>/ Edit Review</div>
+                     <div class="panel panel-default respository"> <a href="/internship" class="link-on-white">Internship Places</a>/ <a href="/places/{{place.id}}" class="link-on-white">{{place.name}}</a> / Review by {student.name} ( Editing )</div>
                      <div class="overview-content-header">Edit Review @{{place.name}}</div>
                      <div class="col-md-8 col-sm-12 col-lg-8">
                         <div class="row">
                            <div class="col-md-6 col-sm-6 col-lg-6">
-                              <div class="review-topic-header">Started Date</div>
-                              <p class="small-description">วัน/เดือน/ปี ที่เริ่มการฝึกงาน</p>
-                              <div class="date-time-picker-wrapper"><input data-provide="datepicker" placeholder="Started Date" class="form-control"></div>
+                              <div class="date-time-picker-wrapper">
+                                 <div class="review-topic-header">Ended Date</div>
+                                 <p class="small-description">วัน/เดือน/ปี ที่เริ่มการฝึกงาน</p>
+                                 <input data-provide="datepicker" placeholder="Start Date" class="form-control" name="startdate">
+                              </div>
                            </div>
                            <div class="col-md-6 col-sm-6 col-lg-6">
                               <div class="date-time-picker-wrapper">
                                  <div class="review-topic-header">Ended Date</div>
                                  <p class="small-description">วัน/เดือน/ปี ที่จบการฝึกงาน</p>
-                                 <input data-provide="datepicker" placeholder="Ended Date" class="form-control">
+                                 <input data-provide="datepicker" placeholder="Ended Date" class="form-control" name="enddate">
                               </div>
+                           </div>
+                           <div class="col-md-6 col-sm-6 col-lg-6">
+                              <div class="review-topic-header">Position</div>
+                              <p class="small-description">ตำแหน่งงานที่ทำ</p>
+                              <input typet='text' placeholder="Postion" class="form-control" name="position">
                            </div>
                         </div>
                         <div class="row overview review-box">
@@ -40,7 +47,7 @@
                            <p class="small-description">- ชีวิตความเป็นอยู่</p>
                            <p class="small-description">- คำแนะนำอื่นๆ สำหรับรุ่นน้องที่สนใจ</p>
                            <input id="short-review" type="text" name="short-review" placeholder="รีวิวสั้นๆ ไม่เกิน 140 ตัวอักษร" class="form-control short-review">
-                           <textarea name="content" data-provide="markdown" data-hidden-buttons="Preview" rows="20" placeholder="รีวิวอย่างละเอียด ยิบ ยิบ ยิบ ยิบบบบ บบ บ บ ..." required></textarea>
+                           <textarea class="col-md-12" name="content" data-provide="markdown" data-hidden-buttons="Preview" rows="20" placeholder="รีวิวอย่างละเอียด ยิบ ยิบ ยิบ ยิบบบบ บบ บ บ ..." required></textarea>
                         </div>
                      </div>
                      <div class="col-md-4 col-sm-12 col-lg-4">
@@ -49,29 +56,45 @@
                               Select Tags
                               <p class="small-description">เลือก Tags ที่เกี่ยวข้องกับการฝึกงาน เช่น ประเทศ, ประเภทของงาน ฯลฯ</p>
                            </div>
-                           <select multiple="multiple" style="width: 100%;" class="col-md-12 col-lg-12 js-example-basic-multiple" ng-reapeat="tags in tags">
-                              {{rating.name}}
-                           </select>
+                           <div style="width: 100%;" class="col-md-12 col-lg-12 js-example-basic-multiple">
+                              <div ng-repeat="tag in tags">
+                                 <h4 name="tag-{{tag.id}}">{{tag.name}}</h4>
+                                 <div ng-repeat="t in tag.tags">
+                                    <input type="checkbox" name="{{tag.id}}" value="{{t.value}}"> {{t.value}}<br />
+                                 </div>
+                              </div>
+
+                           </div>
+
                         </div>
                         <div class="col-md-4 col-sm-4 col-lg-4"></div>
                         <div class="col-md-12 col-lg-12 col-sm-12 panel-grey tags-row">
                            <div class="panel rating-panel panel-grey">
                               <div class="panel-body rating-header">Gives 6 ratings</div>
                               <table class="col-md-12 col-lg-12 col-sm-12 rating-table">
-                                 <tr ng-repeat="rating in place_rating">
+                                 <tr ng-repeat="rating in ratings">
                                     <td class="col-md-6 col-lg-6 col-sm-6 rating-content">
                                        {{rating.name}}
-                                       <p class="small-description">{{rating.desc}}</p>
+                                       <p class="small-description">{{rating.description}}</p>
                                     </td>
-                                    <td class="col-md-6 col-lg-6 col-sm-6 rating-content"><span class="glyphicon glyphicon-heart internship-rating"></span><span class="glyphicon glyphicon-heart internship-rating"></span><span class="glyphicon glyphicon-heart internship-rating"></span><span class="glyphicon glyphicon-heart internship-rating"></span><span class="glyphicon glyphicon-heart internship-rating"></span><span class="glyphicon glyphicon-heart internship-rating"></span></td>
+                                    <td class="col-md-6 col-lg-6 col-sm-6 rating-content">
+                                       <select style="width: 100%;" class="col-md-12 col-lg-12e">
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                       </select>
+                                    </td>
                                  </tr>
                               </table>
                            </div>
                         </div>
                      </div>
+                     <div class="row"><input type="submit" class="btn btn-primary btn-save" value="Submit"></div>
                   </form>
                </div>
-               <div class="row"><button type="submit" class="btn btn-primary btn-save">Submit</button></div>
+               
             </section>
          </div>
       </div>

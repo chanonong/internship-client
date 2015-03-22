@@ -1,14 +1,17 @@
 app.controller('AddReviewCtrl', [
   '$scope','restService','$routeParams',
   function($scope, restService,$routeParams) {
-    restService.getPlaceById($routeParams.id).then(function(res) {
+    restService.getPlaceById($routeParams.placeid).then(function(res) {
       $scope.place = res.data
 
-      restService.getReviewsByPlaceId($routeParams.id).then(function(resp){
+      restService.getReviewsByPlaceId($routeParams.placeid).then(function(resp){
         var reviews = resp.data
+        restService.getTags().then(function(re){
 
-        restService.geTags().then(function(re){
-          console.log(re.data)
+          restService.getRatingCategories().then(function(ratings){
+            $scope.ratings = ratings.data
+
+          })
           $scope.tags = re.data
           $scope.short_reviews = reviews
         })

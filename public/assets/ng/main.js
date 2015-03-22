@@ -48,6 +48,11 @@ app.config(function($routeProvider, $locationProvider) {
         controller: "AddReviewCtrl",
         title: "Add Review"
     })
+    .when('/add/review/:placeid',{
+        template: "<h1>added</h1>",
+        controller: "PrintController",
+        title: "Add Review"
+    })
     .otherwise({
         title: "ERROR 404",
         template: "<p><h1>&nbsp;&nbsp;&nbsp;อาร์มสีเออเร่อ ๔๐๔&nbsp;&nbsp;&nbsp;</h1></p>"
