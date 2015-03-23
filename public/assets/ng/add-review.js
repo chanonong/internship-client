@@ -1,7 +1,7 @@
 app.controller('AddReviewCtrl', [
   '$scope','restService','$routeParams','$location',
   function($scope, restService,$routeParams, $location) {
-
+    $scope.bgImage = {'background-image':'', 'background-repeat':'no-repeat', 'background-attachment':'fixed','width':'100%'}
     $scope.post_re = {
       start: '',
       finish: '',
@@ -16,6 +16,8 @@ app.controller('AddReviewCtrl', [
 
     restService.getPlaceById($routeParams.placeid).then(function(responce) {
       $scope.place = responce.data
+      $scope.bgImage['background-image'] = "url(http://128.199.76.147:8001/" + responce.data.url + ")"
+      console.log($scope)
     });
 
     restService.getTags().then(function(responce){

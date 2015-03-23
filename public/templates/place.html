@@ -1,7 +1,7 @@
 <div>
    <div>
       <section class="header place-page-header">
-         <div class="container header-content-wrapper">
+         <div ng-style="bgImage" class="container header-content-wrapper">
             <div class="col-md-7 col-lg-7 col-sm-12">
                <p class="header-content">{{place.name}}</p>
                <p class="header-small-content">{{place.full_name}}</p>
@@ -13,7 +13,7 @@
          </div>
       </section>
       <!-- TODO IM -->
-      <section class="page-content-wrapper overview-page-content-wrapper" ng-style="{'background-image':'url({{place.url}})'}">
+      <section class="page-content-wrapper overview-page-content-wrapper">
          <div class="row">
             <div class="panel panel-default respository"><a href="/internship" class="link-on-white">Internship Places</a>/ {{place.name}}</div>
             <div class="col-md-8 col-sm-12 col-lg-8">

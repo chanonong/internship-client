@@ -1,9 +1,13 @@
 app.controller('PlaceCtrl', [
   '$scope','restService','$routeParams',
   function($scope, restService,$routeParams) {
+    $scope.bgImage = {'background-image':'', 'background-repeat':'no-repeat', 'background-attachment':'fixed','width':'100%'}
   	restService.getPlaceById($routeParams.id).then(function(res) {
+      $scope.bgImage['background-image'] = "url(http://128.199.76.147:8001/" + res.data.url + ")"
+      console.log($scope)
+      console.log($scope.bgImage)
   		$scope.place = res.data
-
+      console.log($scope.place)
   		restService.getReviewsByPlaceId($routeParams.id).then(function(resp){
   			var reviews = resp.data
         var category = new Array(reviews[0].ratings.length+1).join('0').split('').map(parseFloat)
