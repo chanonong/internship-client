@@ -1,5 +1,5 @@
 
-var app = angular.module('app', ['ngRoute', 'angularFileUpload']);
+var app = angular.module('app', ['ngRoute', 'angularFileUpload','internship.api']);
 
 app.config(function($routeProvider, $locationProvider, $httpProvider) {
 
@@ -9,7 +9,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
     .when('/',
     {
-        redirectTo: "/home"
+        redirectTo: "/internship"
     })
     // .when('/signin',
     // {

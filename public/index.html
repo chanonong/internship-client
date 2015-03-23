@@ -29,7 +29,7 @@
 					<li><a href="/internship">Internship <span class="sr-only">(current)</span></a></li>
 					<li><a href="/add-place">Add Place <span class="sr-only"></span></a></li>
 				</ul>
-				<!-- <ul ng-controller="LoginController" class="nav navbar-nav navbar-right">
+				<<ul ng-controller="LoginController" class="nav navbar-nav navbar-right">
 					<li>
 						<form role="search" class="navbar-form navbar-left">
 							<div class="input-group nav-search-group"><input type="text" placeholder="Find Internship" class="form-control nav-search-input"><span class="input-group-btn"><button type="button" class="btn btn-grey-to-white"><span class="glyphicon glyphicon-search nav-search-btn"></span></button></span></div>
@@ -37,7 +37,7 @@
 					</li>
 					<li ng-if="!Login.isLoggedIn"><a href="javascript://" ng-click="Login.login()">Login</a></li>
 					<li ng-if="Login.isLoggedIn"><a href="javascript://" ng-click="Login.logout()">Logout ({{Login.user.name}})</a></li>
-				</ul> -->
+				</ul>
 			</div>
 		</div>
 	</nav>
@@ -49,9 +49,6 @@
 	<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/assets/js/angular.min.js"></script>
 	<script type="text/javascript" src="/assets/js/angular-route.js"></script>
-	<script type="text/javascript" src="/assets/js/internship.js"></script>
-	<script type="text/javascript" src="/assets/js/internship.api.js"></script>
-	<script type="text/javascript" src="/assets/js/internship.config.js"></script>
 	<script type="text/javascript" src="/assets/js/bootstrap-markdown.js"></script>
 	<script type="text/javascript" src="/assets/js/select2.min.js"></script>
 	<script type="text/javascript" src="/assets/js/bootstrap-datepicker.js"></script>
@@ -59,7 +56,11 @@
 	<script type="text/javascript" src="/assets/js/angular-file-upload-shim.min.js"></script> 
 	<script type="text/javascript" src="/assets/js/angular-file-upload.min.js"></script> 
 
+
+	<script type="text/javascript" src="/assets/ng/internship.api.js"></script>
+	<script type="text/javascript" src="/assets/ng/internship.config.js"></script>
 	<script type="text/javascript" src="/assets/ng/main.js"></script>
+	<script type="text/javascript" src="/assets/ng/login.js"></script>
 	<script type="text/javascript" src="/assets/ng/home.js"></script>
 	<script type="text/javascript" src="/assets/ng/internship.js"></script>
 	<script type="text/javascript" src="/assets/ng/place.js"></script>
@@ -67,5 +68,6 @@
 	<script type="text/javascript" src="/assets/ng/add-review.js"></script>
 	<script type="text/javascript" src="/assets/ng/add-place.js"></script>
 	<script type="text/javascript" src="/assets/ng/print.js"></script>
+
 </body>
 </html>
