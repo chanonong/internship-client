@@ -9,7 +9,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
     .when('/',
     {
-        redirectTo: "/internship"
+        redirectTo: "/home"
     })
     // .when('/signin',
     // {
