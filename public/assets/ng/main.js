@@ -46,10 +46,20 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         controller: "AddPlaceCtrl",
         title: "Add Place"
     })
+    .when('/edit-place/:id',{
+        templateUrl: "/templates/add-place.html",
+        controller: "AddPlaceCtrl",
+        title: "Edit Place"
+    })
     .when('/add-review/:placeid',{
         templateUrl: "/templates/add-review.html",
         controller: "AddReviewCtrl",
         title: "Add Review"
+    })
+    .when('/edit-review/:reviewid',{
+        templateUrl: "/templates/add-review.html",
+        controller: "AddReviewCtrl",
+        title: "Edit Review"
     })
     .when('/add/review/:placeid',{
         template: "<h1>added</h1>",
@@ -95,6 +105,12 @@ app.service('restService', function($http, $rootScope) {
                 return response.data;
             })
         },
+        editPlace: function(id, object) {
+            var path = "http://128.199.76.147:8001/api/places/"+id;
+            return $http.put(path, object).success(function (response) {
+                return response.data;
+            })
+        },
         getTag: function(){
             var path = 'http://128.199.76.147:8001/api/tags';
             return $http.get(path).success(function (response) {
@@ -133,6 +149,12 @@ app.service('restService', function($http, $rootScope) {
         },
         getTags: function() {
             var path = "http://128.199.76.147:8001/api/tags";
+            return $http.get(path).success(function (response) {
+                return response.data;
+            })
+        },
+        getCountries: function() {
+            var path = "http://128.199.76.147:8001/api/countries";
             return $http.get(path).success(function (response) {
                 return response.data;
             })

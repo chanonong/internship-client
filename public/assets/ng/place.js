@@ -1,6 +1,6 @@
 app.controller('PlaceCtrl', [
-  '$scope','restService','$routeParams',
-  function($scope, restService,$routeParams) {
+  '$scope','restService','$routeParams', '$location',
+  function($scope, restService,$routeParams, $location) {
     $scope.bgImage = {'background-image':'', 'background-repeat':'no-repeat', 'background-attachment':'fixed','width':'100%'}
   	restService.getPlaceById($routeParams.id).then(function(res) {
       $scope.bgImage['background-image'] = "url(http://128.199.76.147:8001/" + res.data.url + ")"
@@ -33,5 +33,9 @@ app.controller('PlaceCtrl', [
         })
   		})
   	})
+
+    $scope.edit = function() {
+      $location.path('/edit-place/' + $routeParams.id)
+    }
   }
 ])
