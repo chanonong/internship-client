@@ -53,8 +53,20 @@ app.controller('InternshipOverseasCtrl', [
       var places = res.data
       restService.getTag().then(function(resp) {
         var tags = resp.data
-        $scope.places_in_thailand = {'places' : places , 'filters': tags}
+        restService.getAvailableCountry().then(function(countries){
+            var ava_countries = countries.data
+            var thai = -1;
+            for(var i = 0 ; i < ava_countries.length ; ++i) {
+              if(ava_countries[i].name == "Thailand")
+                thai = i;
+            }
+            if(thai != -1){
+              ava_countries.splice(thai, 1);
+            }
+
+            $scope.places_in_thailand = {'places' : places , 'filters': tags , 'ava_countries' : ava_countries}
+        })
       })
-    })
+    })   
   }
 ])
