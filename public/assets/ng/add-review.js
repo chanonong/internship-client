@@ -26,6 +26,8 @@ app.controller('AddReviewCtrl', [
         var review = response.data
         $scope.post_re.start = new Date(review.start)
         $scope.post_re.finish = new Date(review.finish)
+        $scope.post_re.start.setHours($scope.post_re.start.getHours() - 11)
+        $scope.post_re.finish.setHours($scope.post_re.finish.getHours() - 11)
         $scope.post_re.reviewer_id = review.reviewer_id
         $scope.post_re.detail = review.detail
         $scope.post_re.summary = review.summary
@@ -109,6 +111,10 @@ app.controller('AddReviewCtrl', [
       }
       $scope.post_re.start = new Date($scope.post_re.start)
       $scope.post_re.finish = new Date($scope.post_re.finish)
+
+      $scope.post_re.start.setTime($scope.post_re.start.getTime() - $scope.post_re.start.getTimezoneOffset()*60*1000 );
+      $scope.post_re.finish.setTime($scope.post_re.finish.getTime() - $scope.post_re.start.getTimezoneOffset()*60*1000 );
+
       if($scope.state == "ADD") {
         restService.createReview($scope.post_re).then(function(response) {
           $location.path('/places/' + $routeParams.placeid)
