@@ -8,6 +8,15 @@
             <div class="row">
                <div class="col-md-3 col-sm-3 col-lg-3">
                   <h1 class="filter-header arabica">Filters</h1>
+                  <div ng-if="place_in_thailand.ava_countries != []">
+                     <div class="{{&quot;panel panel-&quot; + filter.color}}">
+                        <div class="panel-heading arabica">Countries</div>
+                        <div class="panel-body filter-check-wrapper">
+                           <div ng-repeat="filter in places_in_thailand.ava_countries" class="checkbox"><label><input type="checkbox" checked="checked">{{filter.name}}</label></div>
+                        </div>
+                     </div>
+                  </div>
+                  
                   <div ng-repeat="filter in places_in_thailand.filters">
                      <div class="{{&quot;panel panel-&quot; + filter.color}}">
                         <div class="panel-heading arabica">{{filter.name}}</div>

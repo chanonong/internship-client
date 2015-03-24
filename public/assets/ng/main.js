@@ -211,6 +211,12 @@ app.service('restService', function($http, $rootScope) {
             return $http.get(path).success(function (response) {
                 return response.data;
             })
+        },
+        getAvailableCountry: function() {
+            var path = "http://128.199.76.147:8001/api/availablecountries" ;
+            return $http.get(path).success(function (response) {
+                return response.data;
+            })
         }
 
 
