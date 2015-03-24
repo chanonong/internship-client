@@ -66,22 +66,19 @@ a.place:hover {
 }
 .thailand-page-header {
     background-image: url('../img/thailand.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-repeat: repeat-x;
     background-position: -500 -500;
     width: 100%
 }
 .oversea-page-header {
     background-image: url('../img/oversea.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-repeat: repeat-x;
     background-position: 0 -800;
     width: 100%
 }
 .add-place-page-header {
     background: #444;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-repeat: repeat-x;
     width: 100%
 }
 .header-small-content {

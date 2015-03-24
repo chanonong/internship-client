@@ -2,7 +2,7 @@ app.controller('PlaceCtrl', [
   '$scope','restService','$routeParams', '$location', 'Login',
   function($scope, restService,$routeParams, $location, Login) {
     console.log(Login)
-    $scope.bgImage = {'background-image':'', 'background-repeat':'no-repeat', 'background-attachment':'fixed','width':'100%'}
+    $scope.bgImage = {'background-image':'', 'background-repeat':'repeat-x','width':'100%'}
   	restService.getPlaceById($routeParams.id).then(function(res) {
       $scope.bgImage['background-image'] = "url(http://128.199.76.147:8001/" + res.data.url + ")"
       console.log($scope)

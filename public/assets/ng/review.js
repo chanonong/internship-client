@@ -2,7 +2,7 @@ app.controller('ReviewCtrl', [
   '$scope','restService','$routeParams','$location','Login',
   function($scope, restService,$routeParams, $location, Login) {
     $scope.isEligible_edit = false;
-    $scope.bgImage = {'background-image':'', 'background-repeat':'no-repeat', 'background-attachment':'fixed','width':'100%'}
+    $scope.bgImage = {'background-image':'', 'background-repeat':'repeat-x','width':'100%'}
 
   	restService.getReviewById($routeParams.id).then(function(res) {
   		console.log(res.data)

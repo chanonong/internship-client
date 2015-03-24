@@ -3,7 +3,7 @@ app.controller('AddReviewCtrl', [
   function($scope, restService,$routeParams, $location, Login) {
     if($routeParams.reviewid) $scope.state = "EDIT"
     else $scope.state = "ADD"
-    $scope.bgImage = {'background-image':'', 'background-repeat':'no-repeat', 'background-attachment':'fixed','width':'100%'}
+    $scope.bgImage = {'background-image':'', 'background-repeat':'repeat-x','width':'100%'}
     $scope.post_re = {
       start: '',
       finish: '',
