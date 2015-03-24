@@ -12,14 +12,14 @@
                      <div class="{{&quot;panel panel-&quot; + filter.color}}">
                         <div class="panel-heading arabica">{{filter.name}}</div>
                         <div class="panel-body filter-check-wrapper">
-                           <div ng-repeat="option in filter.tags" class="checkbox"><label><input type="checkbox" checked="checked">{{option.value}}</label></div>
+                           <div ng-repeat="option in filter.tags" class="checkbox"><label><input type="checkbox" checked="checked" ng-change="filtercheck(val, option)" ng-model="val" ng-init="val=true">{{option.value}}</label></div>
                         </div>
                      </div>
                   </div>
                </div>
                <div class="col-md-9 col-sm-9 col-lg-9">
                   <h1 class="filter-header arabica">Internship Places</h1>
-                  <div ng-repeat="place in places_in_thailand.places" class="panel panel-default">
+                  <div ng-repeat="place in places_in_thailand.places | filter:filterplace" class="panel panel-default">
                      <ul class="list-group">
                         <li class="list-group-item internship-list">
                            <div class="media">

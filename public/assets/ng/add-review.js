@@ -7,7 +7,7 @@ app.controller('AddReviewCtrl', [
     $scope.post_re = {
       start: '',
       finish: '',
-      reviewer_id: 1,//Login.user.id,
+      reviewer_id: Login.user.id,
       place_id: $routeParams.placeid,
       tags: [],
       ratings: [],
