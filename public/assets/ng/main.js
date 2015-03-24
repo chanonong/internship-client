@@ -191,7 +191,7 @@ app.service('restService', function($http, $rootScope) {
             })
         },
         getStudentById: function(id) {
-            var path = "http://128.199.76.147:8001/students/" + id ;
+            var path = "http://128.199.76.147:8001/api/students/" + id ;
             return $http.get(path).success(function (response) {
                 return response.data;
             })
