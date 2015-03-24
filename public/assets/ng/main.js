@@ -56,7 +56,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         controller: "AddReviewCtrl",
         title: "Add Review"
     })
-    .when('/edit-review/:reviewid',{
+    .when('/edit-review/:placeid/:reviewid',{
         templateUrl: "/templates/add-review.html",
         controller: "AddReviewCtrl",
         title: "Edit Review"
@@ -132,6 +132,12 @@ app.service('restService', function($http, $rootScope) {
         createReview: function(object) {
             var path = "http://128.199.76.147:8001/api/reviews/";
             return $http.post(path, object).success(function (response) {
+                return response.data;
+            })
+        },
+        editReview: function(id, object) {
+            var path = "http://128.199.76.147:8001/api/reviews/"+id;
+            return $http.put(path, object).success(function (response) {
                 return response.data;
             })
         },
