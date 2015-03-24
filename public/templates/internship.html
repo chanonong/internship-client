@@ -7,10 +7,10 @@
          <section class="page-content-wrapper overview-page-content-wrapper">
             <div class="row">
                <div class="col-md-3 col-sm-3 col-lg-3">
-                  <h1 class="filter-header arabica">Filters</h1>
+                  <h1 class="filter-header">Filters</h1>
                   <div ng-if="!isThai">
                      <div class="{{&quot;panel panel-&quot; + filter.color}}">
-                        <div class="panel-heading arabica">Countries</div>
+                        <div class="panel-heading">Countries</div>
                         <div class="panel-body filter-check-wrapper">
                            <div ng-repeat="filter in places_in_thailand.ava_countries" class="checkbox"><label><input type="checkbox" checked="checked" ng-change="filtercountry(val2, filter)" ng-model="val2" ng-init="val2=true">{{filter.name}}</label></div>
                         </div>
@@ -19,7 +19,7 @@
                   
                   <div ng-repeat="filter in places_in_thailand.filters">
                      <div class="{{&quot;panel panel-&quot; + filter.color}}">
-                        <div class="panel-heading arabica">{{filter.name}}</div>
+                        <div class="panel-heading">{{filter.name}}</div>
                         <div class="panel-body filter-check-wrapper">
                            <div ng-repeat="option in filter.tags" class="checkbox"><label><input type="checkbox" checked="checked" ng-change="filtercheck(val, option)" ng-model="val" ng-init="val=true">{{option.value}}</label></div>
                         </div>
@@ -27,7 +27,7 @@
                   </div>
                </div>
                <div class="col-md-9 col-sm-9 col-lg-9">
-                  <h1 class="filter-header arabica">Internship Places</h1>
+                  <h1 class="filter-header">Internship Places</h1>
                   <div ng-repeat="place in places_in_thailand.places | filter:filterplace" class="panel panel-default">
                      <ul class="list-group">
                         <li class="list-group-item internship-list">
