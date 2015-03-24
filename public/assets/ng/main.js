@@ -1,5 +1,5 @@
 
-var app = angular.module('app', ['ngRoute', 'angularFileUpload','internship.api']);
+var app = angular.module('app', ['ngRoute', 'angularFileUpload','internship.api', 'Showdown']);
 
 app.config(function($routeProvider, $locationProvider, $httpProvider) {
 
