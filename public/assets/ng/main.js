@@ -24,10 +24,16 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         controller: "HomeCtrl",
         title: "Home"
     })
-    .when('/internship',
+    .when('/thailand',
     {
         templateUrl: "/templates/internship.html",
-        controller: "InternshipCtrl",
+        controller: "InternshipThaiCtrl",
+        title: "Internship Places"
+    })
+    .when('/overseas',
+    {
+        templateUrl: "/templates/internship.html",
+        controller: "InternshipOverseasCtrl",
         title: "Internship Places"
     })
     .when('/places/:id',
@@ -89,6 +95,18 @@ app.service('restService', function($http, $rootScope) {
     return {
         getPlace: function(){
             var path = 'http://128.199.76.147:8001/api/places';
+            return $http.get(path).success(function (response) {
+                return response.data;
+            })
+        },
+        getPlaceThailand: function(){
+            var path = 'http://128.199.76.147:8001/api/places/thailand';
+            return $http.get(path).success(function (response) {
+                return response.data;
+            })
+        },
+        getPlaceOverseas: function(){
+            var path = 'http://128.199.76.147:8001/api/places/overseas';
             return $http.get(path).success(function (response) {
                 return response.data;
             })
@@ -169,6 +187,12 @@ app.service('restService', function($http, $rootScope) {
             var path = "http://128.199.76.147:8001/files";
             console.log(file)
             return $http.post(path, file, {headers: { 'Content-Type': undefined }}).success(function (response) {
+                return response.data;
+            })
+        },
+        getStudentById: function(id) {
+            var path = "http://128.199.76.147:8001/api/students/" + id ;
+            return $http.get(path).success(function (response) {
                 return response.data;
             })
         }

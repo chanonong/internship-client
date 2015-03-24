@@ -1,6 +1,6 @@
 app.controller('ReviewCtrl', [
-  '$scope','restService','$routeParams','$location',
-  function($scope, restService,$routeParams, $location) {
+  '$scope','restService','$routeParams','$location','Login',
+  function($scope, restService,$routeParams, $location, Login) {
 
     $scope.bgImage = {'background-image':'', 'background-repeat':'no-repeat', 'background-attachment':'fixed','width':'100%'}
 
@@ -15,11 +15,15 @@ app.controller('ReviewCtrl', [
   		// 	console.log(resp.data)
   		// 	$scope.short_reviews = resp.data
   		// })
+      restService.getStudentById($scope.review.reviewer_id).then(function(student){
+        console.log(student.data.name)
+        $scope.review.reviewer_name = student.data.name
+      })
   	})
 
     $scope.edit = function() {
       $location.path('/edit-review/' + $scope.review.place_id + '/'+ $routeParams.id)
     }
-
+    $scope.Login = Login
   }
 ])

@@ -1,6 +1,6 @@
 app.controller('AddPlaceCtrl', [
-  '$scope','restService','$routeParams','$location',
-  function($scope, restService,$routeParams, $location) {
+  '$scope','restService','$routeParams','$location', 'Login',
+  function($scope, restService,$routeParams, $location, Login) {
     if($routeParams.id) $scope.state = "EDIT"
     else $scope.state = "ADD"
 
@@ -49,7 +49,7 @@ app.controller('AddPlaceCtrl', [
         $scope.bgImage['background-image'] = "url(http://128.199.76.147:8001/" + place.url + ")"
       })
     }
-
+    $scope.Login = Login
   	
   	$scope.processForm = function() {
   		console.log($scope.post_re)

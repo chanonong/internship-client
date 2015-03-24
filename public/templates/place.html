@@ -29,10 +29,17 @@
                               <div class="media-left"><a href="#"><img src="assets/img/media.svg" class="media-object"></a></div>
                               <div class="media-body">
                                  <div class="row student-review-info">
-                                    <h4 class="media-heading student-name">{{review.reviewer_id}} (reviewer id)<small class="work-field-and-time"> {{review.position}}</small></h4>
+                                    <h4 class="media-heading student-name">Review By {{review.reviewer_name}}<small class="work-field-and-time"> {{review.position}}</small></h4>
                                     <div class="work-field-and-time-start">Start : {{review.start | date:'yyyy-MM-dd'}}</div>
                                     <div class="work-field-and-time-finish">Finish : {{review.finish | date:'yyyy-MM-dd'}}</div>
-                                    <div class="short-review"><span ng-if="review.ratings[5].score>=1" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=2" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=3" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=4" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=5" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=6" class="glyphicon glyphicon-heart internship-rating"></span>"{{review.summary}}"<a href="/reviews/{{review.id}}" class="readmore">» read more</a></div>
+                                    <div class="short-review">"{{review.summary}}"<a href="/reviews/{{review.id}}" class="readmore"> » read more</a>
+                                    </div>
+                                    <span ng-if="review.ratings[5].score>=1" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=2" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=3" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=4" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=5" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=6" class="glyphicon glyphicon-heart internship-rating"></span>
+
+                                    <div class="row">
+                                       <div ng-repeat="tag in review.tags" class="tags-wrapper"><span class="label label-black tags">{{tag.value}}</span></div>
+                                    </div>
+                                    
                                  </div>
                               </div>
                            </li>

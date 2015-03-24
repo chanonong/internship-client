@@ -1,15 +1,13 @@
 app.controller('AddReviewCtrl', [
-  '$scope','restService','$routeParams','$location',
-  function($scope, restService,$routeParams, $location) {
-
+  '$scope','restService','$routeParams','$location', 'Login',
+  function($scope, restService,$routeParams, $location, Login) {
     if($routeParams.reviewid) $scope.state = "EDIT"
     else $scope.state = "ADD"
-
     $scope.bgImage = {'background-image':'', 'background-repeat':'no-repeat', 'background-attachment':'fixed','width':'100%'}
     $scope.post_re = {
       start: '',
       finish: '',
-      reviewer_id: 1,
+      reviewer_id: Login.user.id,
       place_id: $routeParams.placeid,
       tags: [],
       ratings: [],
@@ -129,6 +127,6 @@ app.controller('AddReviewCtrl', [
     }
 
     console.log($scope)
-
+    $scope.Login = Login
   }
 ])
