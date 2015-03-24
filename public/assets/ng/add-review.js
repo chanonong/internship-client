@@ -96,6 +96,14 @@ app.controller('AddReviewCtrl', [
       console.log($scope)
     });
 
+    $scope.$on('logout', function() {
+      if($scope.state == "ADD") {
+        $location.path('/places/' + $routeParams.placeid)
+      } else {
+        $location.path('/reviews/' + $routeParams.reviewid)
+      }
+    })
+
 
     
 

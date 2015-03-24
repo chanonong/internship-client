@@ -49,7 +49,6 @@ app.controller('AddPlaceCtrl', [
         $scope.bgImage['background-image'] = "url(http://128.199.76.147:8001/" + place.url + ")"
       })
     }
-    $scope.Login = Login
   	
   	$scope.processForm = function() {
   		console.log($scope.post_re)
@@ -63,7 +62,7 @@ app.controller('AddPlaceCtrl', [
         restService.editPlace($routeParams.id, $scope.post_re).then(function(response) {
           console.log("HAHAHAHAHHA")
           console.log(response.data)
-          $location.path('/places/' + response.data)
+          $location.path('/places/' + $routeParams.id)
         })
       }
   	}

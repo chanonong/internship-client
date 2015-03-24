@@ -32,9 +32,19 @@ angular.module('internship.api', ['internship.config'])
     var Login = { }
     Login.isLoggedIn = false
     Login.accessToken = localStorage.accessToken
+
+
+    //HOT FIG BY ARMSE
+    if (Login.accessToken) {
+      Login.isLoggedIn = true
+    }
+    //HOT FIG BY ARMSE
+
+
     Login.logout = function() {
       delete Login.accessToken
       delete localStorage.accessToken
+      $rootScope.$broadcast("logout");
       check()
     }
     Login.login = function() {

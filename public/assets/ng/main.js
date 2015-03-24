@@ -91,6 +91,22 @@ app.run(['$location', '$rootScope', function($location, $rootScope) {
     });
 }]);
 
+app.run(['$location', '$rootScope', 'Login', function($location, $rootScope, Login) {
+    $rootScope.$on('$routeChangeStart', function (event, current, previous) {
+        console.log("routeChangeStart");
+        console.log(current.$$route.originalPath)
+        console.log(Login.isLoggedIn)
+        if(current.$$route.originalPath == "/edit-review/:placeid/:reviewid" || current.$$route.originalPath == "/add-review/:placeid") {
+            if(!Login.isLoggedIn) {
+                console.log("LIGIN FIRST")
+                event.preventDefault()
+                Login.login()
+            }
+        }
+        // alert('armse')
+    });
+}]);
+
 app.service('restService', function($http, $rootScope) {
     return {
         getPlace: function(){
