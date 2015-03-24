@@ -27,7 +27,7 @@
                <p class="small-description">- ประเภทของงาน</p>
                <p class="small-description">- คำแนะนำอื่นๆ</p>
             </div>
-            <div class="row col-md-8 col-lg-8 col-sm-12"><textarea ng-model="post_re.about" class="col-md-12" name="content" data-provide="markdown" data-hidden-buttons="Preview" rows="20" placeholder="สถานที่ฝึกงานเป็นยังไง มีอะไรบ้างงงง งงงง งง ง.." required></textarea></div>
+            <div class="row col-md-8 col-lg-8 col-sm-12"><textarea ng-model="post_re.about" name="content" data-provide="markdown" data-hidden-buttons="Preview" rows="20" placeholder="สถานที่ฝึกงานเป็นยังไง มีอะไรบ้างงงง งงงง งง ง.." required></textarea></div>
          </div>
          <div class="row col-md-12 col-lg-12 col-sm-12 add-place-field-row">
             <div class="row col-md-4 col-lg-4 col-sm-12">
@@ -45,4 +45,5 @@
       </div>
    </section>
    <div class="row add-place-field-row"><button type="submit" class="btn btn-primary btn-save" ng-click="processForm()">Add New Place</button></div>
+   <script type="text/javascript" src="/assets/js/bootstrap-markdown.js"></script>
 </form>
