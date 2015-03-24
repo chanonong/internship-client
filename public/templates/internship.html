@@ -32,7 +32,7 @@
                                     <a ng-href="/places/{{place.id}}" class="link-on-white">
                                        <h4 class="media-heading">{{place.full_name}}</h4>
                                     </a>
-                                    {{place.address}}
+                                    {{place.address}} , [{{place.country_name}}]
                                  </div>
                                  <div ng-repeat="tag in place.tags" class="tags-wrapper"><span class="label label-black tags">{{tag.name}}</span></div>
                               </div>
