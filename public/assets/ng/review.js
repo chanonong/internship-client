@@ -1,7 +1,7 @@
 app.controller('ReviewCtrl', [
   '$scope','restService','$routeParams','$location','Login',
   function($scope, restService,$routeParams, $location, Login) {
-
+    $scope.isEligible_edit = false;
     $scope.bgImage = {'background-image':'', 'background-repeat':'no-repeat', 'background-attachment':'fixed','width':'100%'}
 
   	restService.getReviewById($routeParams.id).then(function(res) {
@@ -10,6 +10,9 @@ app.controller('ReviewCtrl', [
       restService.getPlaceById($scope.review.place_id).then(function(resp) {
         $scope.place = resp.data
         $scope.bgImage['background-image'] = "url(http://128.199.76.147:8001/" + resp.data.url + ")"
+        if($scope.review.reviewer_id == Login.user.id) {
+          $scope.isEligible_edit = true
+        }
       })
   		// restService.getReviewsByPlaceId($routeParams.id).then(function(resp){
   		// 	console.log(resp.data)

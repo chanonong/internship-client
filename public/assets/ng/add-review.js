@@ -20,6 +20,9 @@ app.controller('AddReviewCtrl', [
       console.log('EDIT')
       restService.getReviewById($routeParams.reviewid).then(function(response) {
         $scope.__review = response.data
+        if($scope.__review.reviewer_id != Login.user.id) {
+          $location.path('/reviews/' + $routeParams.reviewid)
+        }
         console.log(response.data)
         var review = response.data
         $scope.post_re.start = new Date(review.start)

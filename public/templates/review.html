@@ -17,7 +17,7 @@
                   <div class="panel panel-default respository"> <a href="/internship" class="link-on-white">Internship Places</a>/ <a href="/places/{{review.place_id}}" class="link-on-white">{{place.name}}</a>/ Review by {{review.reviewer_name}}</div>
                   <div class="col-md-8 col-sm-12 col-lg-8">
                      <div class="row overview">
-                        <div class="overview-content-header">About {{place.name}}<button ng-click="edit()" type="button" class="btn btn-primary btn-edit"><span class="glyphicon glyphicon-edit"></span> Edit</button></div>
+                        <div ng-if="isEligible_edit" class="overview-content-header">About {{place.name}}<button ng-click="edit()" type="button" class="btn btn-primary btn-edit"><span class="glyphicon glyphicon-edit"></span> Edit</button></div>
                         <div class="col-md-6 col-sm-6 col-lg-6">
                            <div class="date-time-picker-wrapper">
                               <div class="review-topic-header">Start Date</div>
