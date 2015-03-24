@@ -7,7 +7,7 @@ app.controller('AddReviewCtrl', [
     $scope.post_re = {
       start: '',
       finish: '',
-      reviewer_id: Login.user.id,
+      reviewer_id: 1,//Login.user.id,
       place_id: $routeParams.placeid,
       tags: [],
       ratings: [],
@@ -96,10 +96,12 @@ app.controller('AddReviewCtrl', [
       console.log($scope)
     });
 
+
     
 
 
     $scope.processForm = function() {
+      $scope.post_re.detail = document.getElementById('myTextarea').value
       for(var i = 0; i < $scope.tags.length; i++) {
         for(var j = 0; j < $scope.tags[i].tags.length; j++) {
           if($scope.pre_tag[$scope.tags[i].id][$scope.tags[i].tags[j].id]) {
@@ -123,7 +125,7 @@ app.controller('AddReviewCtrl', [
         })
       }
       
-      console.log($scope)
+      console.log($scope.post_re)
     }
 
     console.log($scope)
