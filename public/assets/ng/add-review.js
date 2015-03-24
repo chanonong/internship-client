@@ -109,7 +109,6 @@ app.controller('AddReviewCtrl', [
       }
       $scope.post_re.start = new Date($scope.post_re.start)
       $scope.post_re.finish = new Date($scope.post_re.finish)
-
       $scope.post_re.start.setTime($scope.post_re.start.getTime() - $scope.post_re.start.getTimezoneOffset()*60*1000 );
       $scope.post_re.finish.setTime($scope.post_re.finish.getTime() - $scope.post_re.start.getTimezoneOffset()*60*1000 );
 
@@ -123,7 +122,7 @@ app.controller('AddReviewCtrl', [
         })
       }
       
-      console.log($scope)
+      console.log($scope.post_re.detail)
     }
 
     console.log($scope)
