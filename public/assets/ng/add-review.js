@@ -1,8 +1,14 @@
 app.controller('AddReviewCtrl', [
   '$scope','restService','$routeParams','$location', 'Login',
   function($scope, restService,$routeParams, $location, Login) {
-    if($routeParams.reviewid) $scope.state = "EDIT"
-    else $scope.state = "ADD"
+    if($routeParams.reviewid) {
+      if(Login.user == undefined) {$location.path('/reviews/' + $routeParams.reviewid)}
+      $scope.state = "EDIT"
+    }
+    else {
+      if(Login.user == undefined) {$location.path('/places/' + $routeParams.placeid)}
+      $scope.state = "ADD"
+    }
     $scope.bgImage = {'background-image':'', 'background-repeat':'repeat-x','width':'100%'}
     $scope.post_re = {
       start: '',
@@ -11,7 +17,7 @@ app.controller('AddReviewCtrl', [
       place_id: $routeParams.placeid,
       tags: [],
       ratings: [],
-      detail: '',
+      detail: '### Assigned work / งานที่ได้รับมอบหมาย\n........\n### Working environment / บรรยากาศในการทำงาน\n........\n### Transportation / การเดินทาง\n........\n### Etc.\n........\n\n### Is your knowledge is enough? and What did you learn ?/ ความรู้ที่ได้เรียนไปพอหรือไม่ และได้เรียนรู้อะไรมาบ้าง \n.......',
       summary: '',
       position: ''
     }
