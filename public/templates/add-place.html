@@ -5,7 +5,7 @@
             <p class="header-content"><input ng-model="post_re.name" id="place-name" type="text" placeholder="ชื่อสถานที่ฝึกงาน" required class="form-control form-place-name"></p>
             <p class="header-small-content"><input ng-model="post_re.full_name" id="place-fullname" type="text" placeholder="ชื่อเต็มของสถานที่ฝึกงาน (optional)" class="form-control form-place-fullname"></p>
             <p class="header-small-content"><input ng-model="post_re.address" id="place-address" type="text" placeholder="ที่อยู่ของสถานที่ฝึกงาน" class="form-control form-place-address"></p>
-            <p class="header-content"> <select ng-model="post_re.country_id" ng-options="country.id as country.name for country in countries"></select></p>
+            <p class=""> <select ng-model="post_re.country_id" ng-options="country.id as country.name for country in countries"></select></p>
 
           <button ng-file-select ng-model="files" ng-disabled="isUpload" ng-multiple="multiple" id="upload-img" class="btn btn-danger btn-add-head-photo"><span class="glyphicon glyphicon-camera"> {{uploadButtonContent}}</span></button>
 
