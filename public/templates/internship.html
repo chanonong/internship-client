@@ -43,7 +43,17 @@
                                     </a>
                                     {{place.address}} , [{{place.country_name}}]
                                  </div>
-                                 <div ng-repeat="tag in place.tags" class="tags-wrapper"><span class="label label-black tags">{{tag.name}}</span></div>
+                                 <div ng-repeat="tag in place.tags" class="tags-wrapper">
+                                    <ng-switch on="tag.tag_category_id">
+                                      <span ng-switch-when="1" class="label label-orange tags">{{tag.name}}</span>
+                                      <span ng-switch-when="2" class="label label-blue tags">{{tag.name}}</span>
+                                      <span ng-switch-when="3" class="label label-black tags">{{tag.name}}</span>
+                                      <span ng-switch-when="4" class="label label-red tags">{{tag.name}}</span>
+                                      <span ng-switch-when="5" class="label label-green tags">{{tag.name}}</span>
+                                      <span ng-switch-default class="tags">{{tag.name}}</span>
+                                    </ng-switch>
+                                    
+                                 </div>
                               </div>
                            </div>
                         </li>
