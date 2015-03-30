@@ -10,7 +10,7 @@
                   <h1 class="filter-header">Filters</h1>
                   <div ng-if="!isThai">
                      <div class="{{&quot;panel panel-&quot; + filter.color}}">
-                        <div class="panel-heading">Countries</div>
+                        <div class="panel-heading" style="font-size: 25px"><span class="label label-default tags">Countries</span></div>
                         <div class="panel-body filter-check-wrapper">
                            <div ng-repeat="filter in places_in_thailand.ava_countries" class="checkbox"><label><input type="checkbox" checked="checked" ng-change="filtercountry(val2, filter)" ng-model="val2" ng-init="val2=true">{{filter.name}}</label></div>
                         </div>
@@ -19,7 +19,16 @@
                   
                   <div ng-repeat="filter in places_in_thailand.filters">
                      <div class="{{&quot;panel panel-&quot; + filter.color}}">
-                        <div class="panel-heading">{{filter.name}}</div>
+                        <div class="panel-heading" style="font-size: 25px">
+                           <ng-switch on="filter.id">
+                              <span ng-switch-when="1" class="label label-orange tags">{{filter.name}}</span>
+                              <span ng-switch-when="2" class="label label-blue tags">{{filter.name}}</span>
+                              <span ng-switch-when="3" class="label label-black tags">{{filter.name}}</span>
+                              <span ng-switch-when="4" class="label label-red tags">{{filter.name}}</span>
+                              <span ng-switch-when="5" class="label label-green tags">{{filter.name}}</span>
+                              <span ng-switch-default class="tags">{{filter.name}}</span>
+                           </ng-switch>
+                        </div>
                         <div class="panel-body filter-check-wrapper">
                            <div ng-repeat="option in filter.tags" class="checkbox"><label><input type="checkbox" checked="checked" ng-change="filtercheck(val, option)" ng-model="val" ng-init="val=true">{{option.value}}</label></div>
                         </div>
