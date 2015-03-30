@@ -40,7 +40,17 @@
                                     <span ng-if="review.ratings[5].score>=1" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=2" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=3" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=4" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=5" class="glyphicon glyphicon-heart internship-rating"></span><span ng-if="review.ratings[5].score>=6" class="glyphicon glyphicon-heart internship-rating"></span>
 
                                     <div class="row">
-                                       <div ng-repeat="tag in review.tags" class="tags-wrapper"><span class="label label-black tags">{{tag.value}}</span></div>
+                                       <div ng-repeat="tag in review.tags" class="tags-wrapper">
+                                          <!-- <span class="label label-black tags">{{tag.value}}</span> -->
+                                          <ng-switch on="tag.tag_category_id">
+                                             <span ng-switch-when="1" class="label label-orange tags">{{tag.value}}</span>
+                                             <span ng-switch-when="2" class="label label-blue tags">{{tag.value}}</span>
+                                             <span ng-switch-when="3" class="label label-black tags">{{tag.value}}</span>
+                                             <span ng-switch-when="4" class="label label-red tags">{{tag.value}}</span>
+                                             <span ng-switch-when="5" class="label label-green tags">{{tag.value}}</span>
+                                             <span ng-switch-default class="tags">{{tag.value}}</span>
+                                          </ng-switch>
+                                       </div>
                                     </div>
                                     
                                  </div>
