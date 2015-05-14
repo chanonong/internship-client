@@ -38,9 +38,9 @@
                <div class="col-md-9 col-sm-9 col-lg-9">
                   <div class="row">
                      <div class="filter-header col-md-8" style="font-size:36px">Internship Places</div>
-                     <input type="text" class="col-md-4 input-sm" style="margin-top:15px" placeholder="search"> 
+                     <input ng-model="searchText" ng-init="searchText = ''" type="text" class="col-md-4 input-sm" style="margin-top:15px" placeholder="search"> 
                   </div>
-                  <div ng-repeat="place in places_in_thailand.places | filter:filterplace" class="panel panel-default">
+                  <div ng-repeat="place in places_in_thailand.places | filter:filterplace | filter: searchText" class="panel panel-default">
                      <ul class="list-group">
                         <li class="list-group-item internship-list">
                            <div class="media">
