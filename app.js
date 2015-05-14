@@ -45,7 +45,7 @@ app.get('/api/name', api.name);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', function(request, response){
-  response.sendfile(__dirname + '/public/index.html');
+  response.sendFile(__dirname + '/public/index.html');
 });
 
 /**
